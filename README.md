@@ -17,7 +17,7 @@ keras_2.11.0   h5py_3.7.0  viennarna_2.3.3
 
 ## Installation
 ```bash
-git clone git clone https://github.com/HaoDK12/DeepOne_model.git
+git clone https://github.com/HaoDK12/DeepOne_model.git
 cd DeepOne_model
 ```
 Set environment as needed. You can import and use the model in scripts or run it via CLI.

@@ -4,6 +4,10 @@ A deep-learning model for SpCas9-induced +1bp frequency in cells
 
 ## Introduction
 
+DeepOne is an online and offline computational tool designed to predict templated 1-bp insertion frequencies in CRISPR/Cas9-mediated genome editing. Based on previous findings<sup>1,2,3</sup>, such insertions—especially at the 17th position upstream of the PAM—are frequent and biologically meaningful. Leveraging data from over 15,000 gRNAs, we trained a deep learning model in HEK293 cells, and fine-tuned it for six other cell lines.
+
+> DeepOne achieves state-of-the-art accuracy across various cellular contexts and is freely available at [dreamdb.biomed.au.dk/DeepOne](https://dreamdb.biomed.au.dk/DeepOne/home).
+
 DeepOne is an online computational tool designed to predict templated 1-bp insertion frequencies in CRISPR/Cas9-mediated genome editing. Previous studies<sup>1,2,3</sup> have domonstrated that CRISPR editing precision 
 correlates with not only overall editing activity but also a strong preference for single-nucleotide homologous insertion. These insertions predominantly occur at the 17th nucleotide position (N17), four bases upstream 
 of the PAM sequence, where the inserted nucleotide is typically a duplicate of N17 in the target sequence. Hopefully, this precise and templated repair is considered to be desirable strategy, particularly for correcting 

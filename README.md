@@ -38,7 +38,7 @@ python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cel
 Note: Supported cell types are ['mESC', 'CHO', 'HEK293', 'IPSC', 'K562', 'HAP1', 'RPE-1']. Given that DeepOne-HEK model offer superior predictive performance acorss multiple cell type in our analysis, we recommend using HEK293 cell if your cell type of interest is not listed here. Alternatively, several similar cells, such as Human embryonic stem cells and mESCs, are considerable.
 
 ## Contact
-We greatly appreciate your feedback. If bug reports or suggestions, Please contact Hao Yuan (au735018@uni.au.dk) or Yonglun Luo (alun@biomed.au.dk).
+We greatly appreciate your feedback. If bug reports or suggestions, Please contact us (au735018@uni.au.dk).
 
 ## Cite
 <sup>1</sup> Chakrabarti AM, Henser-Brownhill T, Monserrat J, Poetsch AR, Luscombe NM, Scaffidi P. Target-Specific Precision of CRISPR-Mediated Genome Editing. Mol Cell. 2019 Feb 21;73(4):699-713.e6.  
@@ -46,6 +46,6 @@ We greatly appreciate your feedback. If bug reports or suggestions, Please conta
 <sup>3</sup> Shou J, Li J, Liu Y, Wu Q. Precise and Predictable CRISPR Chromosomal Rearrangements Reveal Principles of Cas9-Mediated Nucleotide Insertion. Mol Cell. 2018 Aug 16; 71(4):498-509.e4.  
 <sup>4</sup> Chen W, McKenna A, Schreiber J, Haeussler M, Yin Y, Agarwal V, Noble WS, Shendure J. Massively parallel profiling and predictive modeling of the outcomes of CRISPR/Cas9-mediated double-strand break repair. Nucleic Acids Res. 2019 Sep 5; 47(15):7989-8003.
 
-If you are using Deepone in your publication, please cite:  
+If you are using DeepOne in your publication, please cite:  
 Hao Yuan, Xiaoguang Pan, Menachem Viktor Khamo Sarusie, Janos Hasko, Huixin Xu, Chunping Song, Julie Lund Petersen, Trine Skov Petersen, Soren Tvorup Christensen, Lars Allan Larsen, Lin Lin, Yonglun Luo#, Precise and efficient CRISPR gene 
 editing by 1bp insertion with deep-learning gRNAs. 2025 (Manuscript under revision)

@@ -17,8 +17,8 @@ keras_2.11.0   h5py_3.7.0  viennarna_2.3.3
 
 ## Installation
 ```bash
-git clone https://github.com/yourname/DeepOne.git
-cd DeepOne
+git clone git clone https://github.com/HaoDK12/DeepOne_model.git
+cd DeepOne_model
 ```
 Set environment as needed. You can import and use the model in scripts or run it via CLI.
 
@@ -27,6 +27,14 @@ Run the DeepOne-model command line interface (CLI) with the command in the termi
 ```
 python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cell_line HEK293 --out_path results.tsv --prefix sample_
 ```
+| Argument       | Type  | Required | Description                                                                                          |
+| -------------- | ----- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `--input_seq`  | `str` | Yes    | Genomic DNA sequence (31–2000 bp) without spaces, line breaks, or numbers.                           |
+| `--cell_line`  | `str` | Yes    | Cell line used for prediction. Supported: `HEK293`, `CHO`, `HAP1`, `iPSC`, `K562`, `mESCs`, `RPE-1`. |
+| `--out_path`   | `str` | Yes    | Output file path for saving the prediction results (e.g., `results.tsv`).                            |
+| `--prefix`     | `str` | No     | Optional prefix for the guide ID column (default: none).                                             |
+| `--help`, `-h` | flag  | No     | Show help message and exit.                                                                          |
+
 Note: Input seq is a genomic sequence limited from 31 to 2,000 bp, ensuring all spaces, line breaks, and numbers are removed. Supported cell types are ['mESC', 'CHO', 'HEK293', 'IPSC', 'K562', 'HAP1', 'RPE-1']. Given that DeepOne-HEK model offer superior predictive performance acorss multiple cell type in our analysis, we recommend using HEK293 cell if your cell type of interest is not listed here. Alternatively, several similar cells, such as Human embryonic stem cells and mESCs, are considerable.
 
 ## Contact

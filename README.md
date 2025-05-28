@@ -35,7 +35,7 @@ python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cel
 | `--prefix`     | `str` | No     | Optional prefix for the guide ID column (default: none).                                             |
 | `--help`, `-h` | flag  | No     | Show help message and exit.                                                                          |
 
-Note: Supported cell types are ['mESC', 'CHO', 'HEK293', 'IPSC', 'K562', 'HAP1', 'RPE-1']. Given that DeepOne-HEK model offer superior predictive performance acorss multiple cell type in our analysis, we recommend using HEK293 cell if your cell type of interest is not listed here. Alternatively, several similar cells, such as Human embryonic stem cells and mESCs, are considerable.
+Note: Supported cell types are ```['mESC', 'CHO', 'HEK293', 'IPSC', 'K562', 'HAP1', 'RPE-1']``. Given that DeepOne-HEK model offers superior predictive performance across multiple cell types in our analysis, we recommend using HEK293 cell if your cell type of interest is not listed here. Alternatively, several similar cells, such as Human embryonic stem cells and mESCs, may also be considered.
 
 ## Contact
 We greatly appreciate your feedback. If bug reports or suggestions, Please contact us (au735018@uni.au.dk).

@@ -46,4 +46,4 @@ We greatly appreciate your feedback. If bug reports or suggestions, Please conta
 
 If you are using Deepone in your publication, please cite:  
 Hao Yuan, Xiaoguang Pan, Menachem Viktor Khamo Sarusie, Janos Hasko, Huixin Xu, Chunping Song, Julie Lund Petersen, Trine Skov Petersen, Soren Tvorup Christensen, Lars Allan Larsen, Lin Lin, Yonglun Luo#, Precise and efficient CRISPR gene 
- editing by 1bp insertion with deep-learning gRNAs. 2025 (Manuscript under revision)
+editing by 1bp insertion with deep-learning gRNAs. 2025 (Manuscript under revision)

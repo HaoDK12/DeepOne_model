@@ -31,8 +31,8 @@ python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cel
 | -------------- | ----- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `--input_seq`  | `str` | Yes    | Genomic DNA sequence (31–2000 bp) without spaces, line breaks, or numbers.                           |
 | `--cell_line`  | `str` | Yes    | Cell line used for prediction. Supported: `HEK293`, `CHO`, `HAP1`, `iPSC`, `K562`, `mESCs`, `RPE-1`. |
-| `--cas9 variants`  | `str` | No   | Optional model prediction for cas9 variants. Supported: `SpCas9-NG`,`SpG`. |
-| `--out_path`   | `str` | Yes    | Output file path for saving the prediction results (e.g., `results.tsv`).                            |
+| `--cas9 variants`  | `str` | No   | Optional model prediction for cas9 variants. Supported: `None`,`SpCas9-NG`,`SpG`, `Both`. |
+| `--out_path`   | `str` | Yes    | Output file path for saving the prediction results (e.g., `Output.tsv`).                            |
 | `--prefix`     | `str` | No     | Optional prefix for the guide ID column (default: none).                                             |
 | `--help`, `-h` | flag  | No     | Show help message and exit.                                                                          |
 

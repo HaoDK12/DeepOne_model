@@ -4,9 +4,9 @@ A deep-learning model for SpCas9-induced +1bp frequency in cells
 
 ## Introduction
 
-DeepOne is an online and offline computational tool designed to predict templated 1-bp insertion frequencies in CRISPR/Cas9-mediated genome editing. Based on previous findings<sup>1,2,3</sup>, such insertions—especially at the 17th position upstream of the PAM—are frequent and biologically meaningful. Leveraging data from over 15,000 gRNAs, we trained a deep learning model in HEK293 cells, and fine-tuned it for six other cell lines<sup>4</sup>.
+DeepOne is an online and offline computational tool designed to predict templated 1-bp insertion frequencies in CRISPR/Cas9-mediated genome editing. Based on previous findings<sup>1,2,3</sup>, such insertions—especially at the 17th position upstream of the PAM—are frequent and biologically meaningful. Leveraging data from over 15,000 gRNAs, we trained a deep learning model in HEK293 cells, and fine-tuned it for six other cell lines<sup>4</sup>. To broaden the applicability of DeepOne, we extended it to SpCas9-NG and SpG 1-bp prediction tasks.
 
-> DeepOne achieves state-of-the-art accuracy across various cellular contexts and is freely available at [dreamdb.biomed.au.dk/DeepOne](https://dreamdb.biomed.au.dk/DeepOne/home).
+> DeepOne achieves state-of-the-art accuracy across various cellular contexts and SpCas9 enzymes and is freely available at [dreamdb.biomed.au.dk/DeepOne](https://dreamdb.biomed.au.dk/DeepOne/home).
 
 ## Requirements
 Test with
@@ -20,25 +20,26 @@ keras_2.11.0   h5py_3.7.0  viennarna_2.3.3
 git clone https://github.com/HaoDK12/DeepOne_model.git
 cd DeepOne_model
 ```
-Set environment as needed. You can import and use the model in scripts or run it via CLI.
+Set environment as needed. You can import and use the model in scripts or run it via command line interface (CLI).
 
 ## Run DeepOne via command line tool
-Run the DeepOne-model command line interface (CLI) with the command in the terminal:
+Run the DeepOne-model CLI with the command in the terminal:
 ```
-python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cell_line HEK293 --out_path results.tsv --prefix sample_
+python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cell_line HEK293 --cas9 variants --out_path results.tsv --prefix sample_
 ```
 | Argument       | Type  | Required | Description                                                                                          |
 | -------------- | ----- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `--input_seq`  | `str` | Yes    | Genomic DNA sequence (31–2000 bp) without spaces, line breaks, or numbers.                           |
 | `--cell_line`  | `str` | Yes    | Cell line used for prediction. Supported: `HEK293`, `CHO`, `HAP1`, `iPSC`, `K562`, `mESCs`, `RPE-1`. |
+| `--cas9 variants`  | `str` | No   | Optional model prediction for cas9 variants. Supported: `SpCas9-NG`,`SpG`. |
 | `--out_path`   | `str` | Yes    | Output file path for saving the prediction results (e.g., `results.tsv`).                            |
 | `--prefix`     | `str` | No     | Optional prefix for the guide ID column (default: none).                                             |
 | `--help`, `-h` | flag  | No     | Show help message and exit.                                                                          |
 
-Note: Supported cell types are ``['mESC', 'CHO', 'HEK293', 'IPSC', 'K562', 'HAP1', 'RPE-1']``. Given that DeepOne-HEK model offers superior predictive performance across multiple cell types in our analysis, we recommend using HEK293 cell if your cell type of interest is not listed here. Alternatively, several similar cells, such as Human embryonic stem cells and mESCs, may also be considered.
+Note: Supported cell types are ``['mESC', 'CHO', 'HEK293', 'IPSC', 'K562', 'HAP1', 'RPE-1']``. Given that DeepOne-HEK model offers superior predictive performance across multiple cell types in our analysis, we recommend using HEK293 cell if your cell type of interest is not listed here. Alternatively, several similar cells, such as Human embryonic stem cells and mESCs, may also be considered. Supported cas9 variants are optional, which would be additionally added to output if chosen.
 
 ## Contact
-We greatly appreciate your feedback. If bug reports or suggestions, Please contact us (au735018@uni.au.dk).
+We greatly appreciate your feedback. If bug reports or suggestions, Please contact us (yuanhao971@gmail.com).
 
 ## Cite
 <sup>1</sup> Chakrabarti AM, Henser-Brownhill T, Monserrat J, Poetsch AR, Luscombe NM, Scaffidi P. Target-Specific Precision of CRISPR-Mediated Genome Editing. Mol Cell. 2019 Feb 21;73(4):699-713.e6.  

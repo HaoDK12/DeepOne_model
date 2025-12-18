@@ -34,10 +34,10 @@ class EnergyCalculator:
         ######### pam correction parameters for pam-updated energy ##########
         self.pam_ratios = {"GGG": 1.0, "AGG": 1.0, "CGG": 1.0, "TGG": 1.0, "GAG": 0.9, "AAG": 0.9,
               "CAG": 0.9, "TAG": 0.9, "GGA": 0.8, "AGA": 0.8, "CGA": 0.8, "TGA": 0.8, 
-              #"AGC":0.8,"AGA":1.0,"AGT":1.2,"AGG":1.0,##NG
-              #"CGC":0.9,"CGA":1.0,"CGT":1.1,"CGG":1.0,
-              #"GGC":0.9,"GGA":1.1,"GGT":1.2,"GGG":1.1,
-              #"TGC":0.8,"TGA":0.9,"TGT":1.1,"TGG":1.0,
+              "AGC":0.8,"AGA":1.0,"AGT":1.2,"AGG":1.0,##NG
+              "CGC":0.9,"CGA":1.0,"CGT":1.1,"CGG":1.0,
+              "GGC":0.9,"GGA":1.1,"GGT":1.2,"GGG":1.1,
+              "TGC":0.8,"TGA":0.9,"TGT":1.1,"TGG":1.0,
               "OTHERS": 0.0}
         self.REV_NT_MAP = {'-': '', 'a': 'T', 'A': 'T', 'c': 'G', 'C': 'G', 'g': 'C', 'G': 'C',
                 't': 'A', 'T': 'A', 'u': 'A', 'U': 'A', 'n': 'N', 'N': 'N'}
@@ -175,3 +175,4 @@ class EnergyCalculator:
                 "RNA_DNA_eng": self.get_eng(guide_seq[0], guide_seq[1], self.calcRNADNAenergy, GU_allowed=False, pos_weight=True, pam_corr=True, grna_folding=True, dna_opening=True, dna_pos_wgh=False)
             }
         return feature_out
+

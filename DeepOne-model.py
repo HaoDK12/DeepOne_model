@@ -130,7 +130,7 @@ def main():
     parser.add_argument("--input_seq", required=True)
     parser.add_argument("--cell_line", required=True)
     parser.add_argument(
-        "--cas9 variant",
+        "--variant",
         choices=["None","SpCas9-NG","SpG","Both"],
         default="None",
         help="Optional Cas variants"
@@ -161,4 +161,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

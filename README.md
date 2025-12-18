@@ -25,13 +25,13 @@ Set environment as needed. You can import and use the model in scripts or run it
 ## Run DeepOne via command line tool
 Run the DeepOne-model CLI with the command in the terminal:
 ```
-python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cell_line HEK293 --cas9 variants --out_path results.tsv --prefix sample_
+python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cell_line HEK293 --variant --out_path results.tsv --prefix sample_
 ```
 | Argument       | Type  | Required | Description                                                                                          |
 | -------------- | ----- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `--input_seq`  | `str` | Yes    | Genomic DNA sequence (31–2000 bp) without spaces, line breaks, or numbers.                           |
 | `--cell_line`  | `str` | Yes    | Cell line used for prediction. Supported: `HEK293`, `CHO`, `HAP1`, `iPSC`, `K562`, `mESCs`, `RPE-1`. |
-| `--cas9 variants`  | `str` | No   | Optional model prediction for cas9 variants. Supported: `None`,`SpCas9-NG`,`SpG`, `Both`. |
+| `--variant`  | `str` | No   | Optional model prediction for cas9 variants. Supported: `None`,`SpCas9-NG`,`SpG`, `Both`. |
 | `--out_path`   | `str` | Yes    | Output file path for saving the prediction results (e.g., `Output.tsv`).                            |
 | `--prefix`     | `str` | No     | Optional prefix for the guide ID column (default: none).                                             |
 | `--help`, `-h` | flag  | No     | Show help message and exit.                                                                          |

@@ -89,6 +89,14 @@ def process_sequence(
     results = []
 
     for strand, seq_id, target in pam_sites:
+        is_ngg = target[-5:-3] == "GG"
+        has_other_cas = len(variants) > 0  # 传入了其他变体模型
+        
+        # situation 1 only Deepone and non-NGG
+        if not has_other_cas and not is_ngg:
+            continue
+        # =======================================
+
         guide = target[4:24] + target[-6:-3]
         energy = energy_calculator.get_energy_features_for_guides(
             {seq_id: [guide, guide]}
@@ -103,13 +111,17 @@ def process_sequence(
             preds.append(model.predict([onehot, rna_dna], verbose=0))
         deepone_score = float(np.mean(preds))
 
+        # situation 2 Deepone outputs "-" with non-NGG of other variants
+        deepone_score_val = round(deepone_score, 2) if is_ngg else "-"
+        # =========================================================================
+
         row = {
             "ID": seq_id,
             "Target": guide,
             "Strand": strand,
-            "DeepOne_score": round(deepone_score, 2),
+            "DeepOne_score": deepone_score_val, # 已应用修改
             "GC%": round(calculate_gc(guide[:20]) * 100, 1),
-            "PAM": target[-6:-3]
+            "PAM": target[-6:-3] if re.match(r"[ATCG]GG", target[-6:-3]) else target[-6:-4]
         }
 
         # Variant 预测（可选）

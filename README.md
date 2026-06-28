@@ -41,7 +41,7 @@ Note:
 2) Supported cas9 variants are provided as optional selections, and the corresponding variant prediction will be included in the output if chosen.
 3) Prediction outcome might vary slightly because of differences in the version or installment of the Viennarna package, which can affect the calculated input parameter delta-Gb.
 
-## Advanced Workflow: Joint prediction pipeline of 1-bp insertion frequencies in CRISPR/Cas9-mediated genome editing (DeepOne + inDelphi)
+## Advanced Workflow: Joint prediction pipeline of 1-bp insertion frequencies (DeepOne + inDelphi)
 
 To select the overall optimal sgRNA candidates for frame-restoration or precise knockouts, we provide an automated joint prediction pipeline. This workflow screens both strands of a long genomic region for valid NGG PAM sites, computes absolute $+1$ bp duplicated insertion frequencies using **DeepOne**, profiles indel spectrum landscapes via **inDelphi**, and ultimately ranks candidates based on the custom programmatic precision index:
 
@@ -72,6 +72,21 @@ DEEPONE_DIR = /path/to/local/DeepOne_model/
 [INDELPHI_ENV]
 PYTHON2_EXEC = /path/to/py27/bin/python
 INDELPHI_DIR = /path/to/local/inDelphi-model-master/
+
+Argument Parameter,Allowed Constraints / Formats,Description
+SAMPLE_GENOMIC_SEQUENCE,str (>= 60 bp genomic continuous DNA),Target window containing flanking sequences around PAM sites.
+CELL_LINE,"HEK293, mESC, K562",Limited to the intersection supported by both pre-trained models.
+PYTHON3_EXEC / PYTHON2_EXEC,System paths / environment aliases,Paths to the respective Python 3 and Python 2.7 runtime binaries.
+DEEPONE_DIR / INDELPHI_DIR,Absolute local directories,Root path of cloned Git repositories.
+```
+## Running the Joint Pipeline
+Execute the master script in your terminal using Python 3:
+```
+python run_pipeline_master.py
+```
+## Output
+The workflow evaluates targets on both strands and generates a tab-separated table file `./Final_Joint_Predictions.tsv` containing fused rows (ID, Target, Strand, PAM, GC%, DeepOne Score, inDelphi 1bp Ins%, inDelphi Frameshift%). The entries are hierarchically sorted in descending order based on the `Ins1bp_vs_Frameshift_Ratio` to instantly highlight elite target sites.
+
 
 ## Contact
 We greatly appreciate your feedback. If bug reports or suggestions, Please contact us (yuanhao971@gmail.com).

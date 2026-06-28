@@ -32,7 +32,7 @@ python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cel
 | `--input_seq`  | `str` | Yes    | Genomic DNA sequence (31–2000 bp) without spaces, line breaks, or numbers.                           |
 | `--cell_line`  | `str` | Yes    | Cell line used for prediction. Supported: `HEK293`, `CHO`, `HAP1`, `iPSC`, `K562`, `mESCs`, `RPE-1`. |
 | `--variant`  | `str` | No   | Optional model prediction for cas9 variants. Supported: `None`,`SpCas9-NG`,`SpG`, `Both`. |
-| `--out_path`   | `str` | Yes    | Output file path for saving the prediction results (e.g., `Output.tsv`).                            |
+| `--out`   | `str` | Yes    | Output file path for saving the prediction results (e.g., `Output.tsv`).                            |
 | `--prefix`     | `str` | No     | Optional prefix for the guide ID column (default: none).                                             |
 | `--help`, `-h` | flag  | No     | Show help message and exit.                                                                          |
 
@@ -43,14 +43,14 @@ Note:
 
 ## Advanced Workflow: Joint prediction pipeline of 1-bp insertion frequencies (DeepOne + inDelphi)
 
-To select the overall optimal sgRNA candidates for frame-restoration or precise knockouts, we provide an automated joint prediction pipeline. This workflow screens both strands of a long genomic region for valid NGG PAM sites, computes absolute $+1$ bp duplicated insertion frequencies using **DeepOne**, profiles indel spectrum landscapes via **inDelphi**, and ultimately ranks candidates based on the custom programmatic precision index:
+To select the overall optimal sgRNA candidates for frame-restoration or precise knockouts, we provide an automated joint prediction pipeline. This workflow screens both strands of a long genomic region for valid NGG PAM sites, computes absolute $+1$ bp duplicated insertion frequencies using **DeepOne**, profiles indel spectrum landscapes via **inDelphi**, and ultimately ranks candidates based on the custom +1bp ins precision index:
 ```math
 $$\text{Ins1bp\_vs\_Frameshift\_Ratio} = \frac{\text{inDelphi 1-bp Insertion Frequency}}{\text{inDelphi Total Frameshift Frequency}}$$
 ```
 This helps filter out targets where $+1$ bp insertions are diluted by undesirable indels.
 
 ### Decoupled Environment Setup
-Because `DeepOne` depends on frameworks (Python 3.x / TensorFlow 2.x) and `inDelphi` runs on legacy dependencies (Python 2.7), the pipeline isolates these tasks seamlessly via two sub-process bridging.
+Because `DeepOne` depends on frameworks (Python 3 / TensorFlow 2.11) and `inDelphi` runs on legacy dependencies (Python 2.7), the pipeline isolates these tasks seamlessly via two sub-process bridging.
 
 1. Clone both repositories into your local system:
    - DeepOne: `https://github.com/HaoDK12/DeepOne_model.git`
@@ -76,9 +76,9 @@ INDELPHI_DIR = /path/to/local/inDelphi-model-master/
 | Argument       | Required | Description                                                                                          |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `--SAMPLE_GENOMIC_SEQUENCE`  | str (>= 60 bp genomic continuous DNA)    | Target window containing flanking sequences around PAM sites. |
-| `--CELL_LINE`  | "HEK293, mESC, K562"    | limited to the intersection supported by both pre-trained models. |
+| `--CELL_LINE`  | "HEK293, mESC, K562"    | Limited to the intersection supported by both pre-trained models. |
 | `--PYTHON3_EXEC / PYTHON2_EXEC`  | environment paths  | Paths to the respective Python 3 and Python 2.7 runtime binaries. |
-| `--DEEPONE_DIR / INDELPHI_DIR`  | Absolute local directories  | Root path of cloned Git repositories. |
+| `--DEEPONE_DIR / INDELPHI_DIR`  | absolute local directories  | Root path of cloned Git repositories. |
 
 
 ## Running the Joint Pipeline

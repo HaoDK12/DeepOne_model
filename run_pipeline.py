@@ -2,7 +2,7 @@
 """
 CRISPR Joint Prediction Pipeline: DeepOne + inDelphi
 Description: This script dynamically generates and executes the dual-environment 
-             CRISPR gRNA profiling workflow by bridging Python 3 (DeepOne) and Python 2.7 (inDelphi).
+             Prediction pipeline of 1-bp insertion frequencies by bridging Python 3 (DeepOne) and Python 2.7 (inDelphi).
 """
 
 import os

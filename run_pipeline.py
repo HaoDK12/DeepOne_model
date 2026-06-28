@@ -38,7 +38,7 @@ except Exception as e:
     print("[CRITICAL ERROR] Failed to parse parameters from 'config.ini'. Details: %s" % str(e))
     sys.exit(1)
 
-# 2. PARAMETER VALIDATION (参数自动化校验)
+# 2. PARAMETER VALIDATION
 # =====================================================================
 
 print("=" * 80)
@@ -315,7 +315,7 @@ except subprocess.CalledProcessError as e:
     sys.exit(1)
 
 # =====================================================================
-# 5. POST-PROCESSING & CLEANUP (后处理与临时文件清理)
+# 5. POST-PROCESSING & CLEANUP
 # =====================================================================
 print("=" * 80)
 print("[PIPELINE COMPLETE SUCCESS]")

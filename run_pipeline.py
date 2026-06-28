@@ -37,7 +37,7 @@ try:
 except Exception as e:
     print("[CRITICAL ERROR] Failed to parse parameters from 'config.ini'. Details: %s" % str(e))
     sys.exit(1)
-
+# =====================================================================
 # 2. PARAMETER VALIDATION
 # =====================================================================
 

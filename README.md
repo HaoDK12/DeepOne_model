@@ -25,7 +25,7 @@ Set environment as needed. You can import and use the model in scripts or run it
 ## Run DeepOne via command line tool
 Run the DeepOne-model CLI with the command in the terminal:
 ```
-python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cell_line HEK293 --variant --out_path results.tsv --prefix sample_
+python DeepOne-model.py --input_seq TTATCTTCGCTATCACCTCCGCCGGGGTCACCCATTAT --cell_line HEK293 --variant --out results.tsv --prefix sample_
 ```
 | Argument       | Type  | Required | Description                                                                                          |
 | -------------- | ----- | -------- | ---------------------------------------------------------------------------------------------------- |

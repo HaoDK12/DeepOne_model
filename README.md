@@ -44,9 +44,9 @@ Note:
 ## Advanced Workflow: Joint prediction pipeline of 1-bp insertion frequencies (DeepOne + inDelphi)
 
 To select the overall optimal sgRNA candidates for frame-restoration or precise knockouts, we provide an automated joint prediction pipeline. This workflow screens both strands of a long genomic region for valid NGG PAM sites, computes absolute $+1$ bp duplicated insertion frequencies using **DeepOne**, profiles indel spectrum landscapes via **inDelphi**, and ultimately ranks candidates based on the custom programmatic precision index:
-
+```math
 $$\text{Ins1bp\_vs\_Frameshift\_Ratio} = \frac{\text{inDelphi 1-bp Insertion Frequency}}{\text{inDelphi Total Frameshift Frequency}}$$
-
+```
 This helps filter out targets where $+1$ bp insertions are diluted by undesirable indels.
 
 ### Decoupled Environment Setup
@@ -72,13 +72,15 @@ DEEPONE_DIR = /path/to/local/DeepOne_model/
 [INDELPHI_ENV]
 PYTHON2_EXEC = /path/to/py27/bin/python
 INDELPHI_DIR = /path/to/local/inDelphi-model-master/
-
-Argument Parameter,Allowed Constraints / Formats,Description
-SAMPLE_GENOMIC_SEQUENCE,str (>= 60 bp genomic continuous DNA),Target window containing flanking sequences around PAM sites.
-CELL_LINE,"HEK293, mESC, K562",Limited to the intersection supported by both pre-trained models.
-PYTHON3_EXEC / PYTHON2_EXEC,System paths / environment aliases,Paths to the respective Python 3 and Python 2.7 runtime binaries.
-DEEPONE_DIR / INDELPHI_DIR,Absolute local directories,Root path of cloned Git repositories.
 ```
+| Argument       | Required | Description                                                                                          |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `--SAMPLE_GENOMIC_SEQUENCE`  | str (>= 60 bp genomic continuous DNA)    | Target window containing flanking sequences around PAM sites. |
+| `--CELL_LINE`  | "HEK293, mESC, K562"    | limited to the intersection supported by both pre-trained models. |
+| `--PYTHON3_EXEC / PYTHON2_EXEC`  | environment paths  | Paths to the respective Python 3 and Python 2.7 runtime binaries. |
+| `--DEEPONE_DIR / INDELPHI_DIR`  | Absolute local directories  | Root path of cloned Git repositories. |
+
+
 ## Running the Joint Pipeline
 Execute the master script in your terminal using Python 3:
 ```

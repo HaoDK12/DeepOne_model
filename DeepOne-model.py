@@ -9,11 +9,11 @@ from typing import Dict, List, Tuple
 from utils.Energy_cal import EnergyCalculator
 from utils.DL_model import get_model
 
-# --------------------- 参数配置 ---------------------
+# pharameter config
 MAX_LEN_EN = 30
 MAX_DEP = 4
 
-# --------------------- 工具函数 ---------------------
+# --------------------- functions ---------------------
 def rev_comp(seq: str) -> str:
     comp = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C', 'N': 'N'}
     return ''.join(comp.get(b, 'N') for b in reversed(seq))
@@ -44,7 +44,7 @@ def one_hot_encode(seq: str) -> np.ndarray:
 def calculate_gc(seq: str) -> float:
     return (seq.count('G') + seq.count('C')) / len(seq)
 
-# --------------------- 权重加载 ---------------------
+# --------------------- weights load ---------------------
 def load_weight_paths(model_dir: str) -> List[str]:
     if not os.path.isdir(model_dir):
         raise FileNotFoundError(model_dir)
@@ -72,7 +72,7 @@ def get_variant_weights(variant: str) -> List[str]:
         return load_weight_paths(os.path.join(base, "spg"))
     return []
 
-# --------------------- 主预测逻辑 ---------------------
+# --------------------- main function ---------------------
 def process_sequence(
     input_seq: str,
     cell_line: str,

@@ -41,6 +41,38 @@ Note:
 2) Supported cas9 variants are provided as optional selections, and the corresponding variant prediction will be included in the output if chosen.
 3) Prediction outcome might vary slightly because of differences in the version or installment of the Viennarna package, which can affect the calculated input parameter delta-Gb.
 
+## Advanced Workflow: Joint prediction pipeline of 1-bp insertion frequencies in CRISPR/Cas9-mediated genome editing (DeepOne + inDelphi)
+
+To select the overall optimal sgRNA candidates for frame-restoration or precise knockouts, we provide an automated joint prediction pipeline. This workflow screens both strands of a long genomic region for valid NGG PAM sites, computes absolute $+1$ bp duplicated insertion frequencies using **DeepOne**, profiles indel spectrum landscapes via **inDelphi**, and ultimately ranks candidates based on the custom programmatic precision index:
+
+$$\text{Ins1bp\_vs\_Frameshift\_Ratio} = \frac{\text{inDelphi 1-bp Insertion Frequency}}{\text{inDelphi Total Frameshift Frequency}}$$
+
+This helps filter out targets where $+1$ bp insertions are diluted by undesirable indels.
+
+### Decoupled Environment Setup
+Because `DeepOne` depends on frameworks (Python 3.x / TensorFlow 2.x) and `inDelphi` runs on legacy dependencies (Python 2.7), the pipeline isolates these tasks seamlessly via two sub-process bridging.
+
+1. Clone both repositories into your local system:
+   - DeepOne: `https://github.com/HaoDK12/DeepOne_model.git`
+   - inDelphi: `https://github.com/maxwshen/inDelphi-model.git`
+2. Ensure you have corresponding Python 3 and Python 2.7 environments activated or mapped.
+
+### Configuration (`config.ini`)
+Parameters are managed externally via `config.ini`. Create this file in the same workspace directory as `run_pipeline.py` and specify your paths and targets:
+
+```ini
+[SEQUENCE_AND_CELL]
+SAMPLE_GENOMIC_SEQUENCE = GCTATCACCTCCGCCGGGGTCACCCATTATCTGGCGGCCCCCCGGAAAGGGGGGGGGGGGGG
+CELL_LINE = HEK293
+
+[DEEPONE_ENV]
+PYTHON3_EXEC = python
+DEEPONE_DIR = /path/to/local/DeepOne_model/
+
+[INDELPHI_ENV]
+PYTHON2_EXEC = /path/to/py27/bin/python
+INDELPHI_DIR = /path/to/local/inDelphi-model-master/
+
 ## Contact
 We greatly appreciate your feedback. If bug reports or suggestions, Please contact us (yuanhao971@gmail.com).
 

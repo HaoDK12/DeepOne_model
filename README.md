@@ -50,7 +50,7 @@ $$\text{Ins1bp\_vs\_Frameshift\_Ratio} = \frac{\text{inDelphi 1-bp Insertion Fre
 This helps filter out targets where $+1$ bp insertions are diluted by undesirable indels.
 
 ### Decoupled Environment Setup
-Because `DeepOne` depends on frameworks (Python 3 / TensorFlow 2.11) and `inDelphi` runs on legacy dependencies (Python 2.7), the pipeline isolates these tasks seamlessly via two sub-process bridging.
+Because `DeepOne` depends on frameworks (Python 3 / TensorFlow 2.11) and `inDelphi` runs on legacy dependencies (Python 2.7), the pipeline isolates these tasks seamlessly via dynamic sub-process bridging.
 
 1. Clone both repositories into your local system:
    - DeepOne: `https://github.com/HaoDK12/DeepOne_model.git`

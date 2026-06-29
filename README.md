@@ -82,9 +82,9 @@ INDELPHI_DIR = /path/to/local/inDelphi-model-master/
 
 
 ## Running the Joint Pipeline
-Execute the master script in your terminal using Python 3:
+Execute the workflow script in your terminal using Python 3:
 ```
-python run_pipeline_master.py
+python run_pipeline.py
 ```
 ## Output
 The workflow evaluates targets on both strands and generates a tab-separated table file `./Final_Joint_Predictions.tsv` containing fused rows (ID, Target, Strand, PAM, GC%, DeepOne Score, inDelphi 1bp Ins%, inDelphi Frameshift%). The entries are hierarchically sorted in descending order based on the `Ins1bp_vs_Frameshift_Ratio` to instantly highlight elite target sites.

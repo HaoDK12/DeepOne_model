@@ -90,7 +90,7 @@ def process_sequence(
 
     for strand, seq_id, target in pam_sites:
         is_ngg = target[-5:-3] == "GG"
-        has_other_cas = len(variants) > 0  # 传入了其他变体模型
+        has_other_cas = len(variants) > 0  
         
         # situation 1 only Deepone and non-NGG
         if not has_other_cas and not is_ngg:
@@ -104,7 +104,7 @@ def process_sequence(
         onehot = one_hot_encode(target).reshape(1,30,4)
         rna_dna = np.array([[energy[seq_id]["RNA_DNA_eng"]]])
 
-        # DeepOne 主预测
+        
         preds = []
         for w in cell_weights:
             model.load_weights(w)
@@ -119,12 +119,12 @@ def process_sequence(
             "ID": seq_id,
             "Target": guide,
             "Strand": strand,
-            "DeepOne_score": deepone_score_val, # 已应用修改
+            "DeepOne_score": deepone_score_val, 
             "GC%": round(calculate_gc(guide[:20]) * 100, 1),
             "PAM": target[-6:-3] if re.match(r"[ATCG]GG", target[-6:-3]) else target[-6:-4]
         }
 
-        # Variant 预测（可选）
+        # Variant prediction (optional)
         for v in variants:
             vp = []
             for w in variant_weights[v]:

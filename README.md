@@ -100,5 +100,4 @@ We greatly appreciate your feedback. If bug reports or suggestions, Please conta
 <sup>4</sup> Chen W, McKenna A, Schreiber J, Haeussler M, Yin Y, Agarwal V, Noble WS, Shendure J. Massively parallel profiling and predictive modeling of the outcomes of CRISPR/Cas9-mediated double-strand break repair. Nucleic Acids Res. 2019 Sep 5; 47(15):7989-8003.
 
 If you are using DeepOne in your publication, please cite:  
-Hao Yuan, Xiaoguang Pan, Menachem Viktor Khamo Sarusie, Janos Hasko, Huixin Xu, Chunping Song, Julie Lund Petersen, Trine Skov Petersen, Soren Tvorup Christensen, Lars Allan Larsen, Lin Lin, Yonglun Luo#, Precise and efficient CRISPR gene 
-editing by 1bp insertion with deep-learning gRNAs. 2025 (Manuscript under revision)
+Hao Yuan, Xiaoguang Pan, Menachem Viktor Khamo Sarusie, Janos Hasko, Huixin Xu, Chunping Song, Julie Lund Petersen, Trine Skov Petersen, Soren Tvorup Christensen, Lars Allan Larsen, Lin Lin, Yonglun Luo#, Template-free single nucleotide insertion with deep-learning CRISPR gRNAs for highly efficient gene disruption and systemic correction of DMD mutations. 2026 (Manuscript under revision)

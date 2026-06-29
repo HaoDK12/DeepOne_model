@@ -75,10 +75,10 @@ INDELPHI_DIR = /path/to/local/inDelphi-model-master/
 ```
 | Argument       | Required | Description                                                                                          |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `--SAMPLE_GENOMIC_SEQUENCE`  | str (>= 60 bp genomic continuous DNA)    | Target window containing flanking sequences around PAM sites. |
+| `--SAMPLE_GENOMIC_SEQUENCE`  | Str (>= 60 bp genomic continuous DNA)    | Target window containing flanking sequences around PAM sites. |
 | `--CELL_LINE`  | "HEK293, mESC, K562"    | Limited to the intersection supported by both pre-trained models. |
-| `--PYTHON3_EXEC / PYTHON2_EXEC`  | environment paths  | Paths to the respective Python 3 and Python 2.7 runtime binaries. |
-| `--DEEPONE_DIR / INDELPHI_DIR`  | absolute local directories  | Root path of cloned Git repositories. |
+| `--PYTHON3_EXEC / PYTHON2_EXEC`  | Environment paths  | Paths to the respective Python 3 and Python 2.7 runtime binaries. |
+| `--DEEPONE_DIR / INDELPHI_DIR`  | Absolute local directories  | Root path of cloned Git repositories. |
 
 
 ## Running the Joint Pipeline
